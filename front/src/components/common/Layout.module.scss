@@ -1,0 +1,16 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 950px;
+    max-width: 560px;
+    width: 100%;
+
+    padding: 30px;
+    margin: 0 auto;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
