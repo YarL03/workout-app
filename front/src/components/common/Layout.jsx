@@ -1,9 +1,10 @@
 import {Header} from './Header/Header'
-import style from './Layout.module.scss'
+import styles from './Layout.module.scss'
+import cn from 'classnames'
 
-const Layout = ({children, height = '350px', bgImage}) => {
+const Layout = ({children, height = '280px', bgImage}) => {
     return (
-        <div className={style.wrapper} style={{height, backgroundImage: `url(${bgImage})`}}>
+        <div className={cn(styles.wrapper, {[styles.otherPage]: height === '280px'})} style={{height, backgroundImage: `url(${bgImage})`}}>
             <Header/>
             <div>    
                 {children}

@@ -72,7 +72,89 @@ img {
     height: auto
 }
 
-
 #root {
     height: 100%;
+}
+
+.select2-selection {
+    &__control {
+        cursor: pointer !important;
+        margin-bottom: 2rem !important;
+        border-radius: 10px !important;
+        min-height: 48px !important;
+        background-color: $purple !important;
+        border: 1px solid transparent !important;
+        color: #fff;
+        font-size: 16px;
+        width: 100%;
+        text-align: start !important;
+
+        &--is-focused {
+            border-color: transparent !important;
+            box-shadow: 0 0 0 1px rgba($accent, .3) !important;
+        }
+    }
+
+    &__menu {
+        background-color: $purple !important;
+        border-radius: 10px !important;
+
+        &-list {
+            padding: 0 !important;
+            border-radius: 10px !important;
+        }
+
+        &-notice {
+            color: #946E86 !important;
+        }
+    }
+
+    &__option {
+        &--is-focused {
+            background-color: darken($purple,  5%) !important;
+        }
+
+        &--is-selected {
+            background-color: darken($purple,  8%) !important;
+        }
+    }
+
+    &__indicator:hover {
+        color: #946E86 !important;
+    }
+
+    &__placeholder {
+        color: #946E86 !important;
+        margin-left: 6px !important;
+    }
+
+    &__single-value {
+        color: #fff !important;
+    }
+
+    &__multi-value {
+        border-radius: 6px !important;
+        background-color: lighten($purple, 10%) !important;
+
+        &__label {
+            color: #fff !important
+        }
+    }
+
+    &__input {
+        color: #fff !important;
+    }
+
+}
+
+.dark-link {
+    text-align: right;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+    color: $purple;
+    transition: color .3s ease;
+
+    &:hover {
+        color: $accent;
+    }
 }

@@ -1,0 +1,12 @@
+@import '../../../scss/variables';
+
+.wrapper {
+    padding: 50px 90px;
+    text-align: center;
+}
+
+.link-wrapper {
+    display: flex;
+    justify-content: end;
+    line-height: normal;
+}
