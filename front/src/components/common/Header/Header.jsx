@@ -11,6 +11,7 @@ export const Header = () => {
     const navigate = useNavigate()
 
     const goBack = () => navigate(-1)
+    const goAuth = () => navigate('/auth')
 
     return (
         
@@ -20,7 +21,7 @@ export const Header = () => {
             <button type='button' onClick={goBack}>
                 <img src={arrowImage} alt='Auth'/>
             </button>
-            :  <button type='button'>
+            :  <button type='button' onClick={goAuth}>
                 <img src={userImage} alt='Auth'/>
             </button>
             }

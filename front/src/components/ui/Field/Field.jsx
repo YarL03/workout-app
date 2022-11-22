@@ -1,10 +1,10 @@
 import styles from './Field.module.scss'
 
-const Field = ({placeholder, register, inputName, type = 'text'}) => {
+const Field = ({placeholder, type = 'text', register}) => {
 
     return (
         <input 
-            {...register(inputName)}
+            {...register}
             placeholder={placeholder}
             type={type}
             className={styles.input}

@@ -22,7 +22,7 @@ const NewWorkout = () => {
             <Layout bgImage={bgImage}>
                 <h1>CREATE NEW WORKOUT</h1>
             </Layout>
-            <div className={styles.wrapper}>
+             <div className={styles.wrapper}> {/* styles.wrapper */}
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Field
                         register={register}

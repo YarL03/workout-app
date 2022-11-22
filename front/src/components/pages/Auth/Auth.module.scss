@@ -1,0 +1,31 @@
+@import '../../../scss/variables';
+
+.wrapper {
+    position: relative;
+    padding: 50px 90px;
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto;
+
+    .inline-buttons {
+        display: flex;
+        justify-content: space-between;
+        
+        &>div {
+            width: 48%;
+
+            &>button {
+                width: 100%;
+            }
+
+            &:last-child > button {
+                background-color: #20366b;
+                opacity: .8;
+
+                &:hover {
+                    background-color: lighten(#20366b, 10%);
+                }
+            }
+        }
+    }
+}
