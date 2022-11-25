@@ -1,6 +1,6 @@
 import styles from './Counters.module.scss'
 
-const Counters = ({data: {minutes, workouts, kgs}}) => {
+const Counters = ({data: {minutes = 0, workouts = 0, kgs = 0}}) => {
     return (
         <div className={styles.wrapper}>
                     <div className={styles.counter}>

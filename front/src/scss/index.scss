@@ -158,3 +158,8 @@ img {
         color: $accent;
     }
 }
+
+img {
+    -webkit-user-drag: none;
+    user-select: none;
+}

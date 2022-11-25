@@ -59,7 +59,7 @@ const Auth = () => {
     return (
         <>
             <Layout bgImage={bgImage}>
-                <h1>CREATE NEW WORKOUT</h1>
+                <h1>AUTH || REGISTRATION</h1>
             </Layout>
 
             <div className={styles.wrapper}>

@@ -1,11 +1,11 @@
-import PageNotFound from "../components/pages/404/PageNotFound"
+import { Navigate } from "react-router-dom"
 import { useAuth } from "../hooks/useAuth"
 
 const RequiredAuth = ({children}) => {
     const {isAuth} = useAuth()
 
     return (
-        isAuth ? children : <PageNotFound/>
+        isAuth ? children : <Navigate to="/auth"/>
     )
 }
 

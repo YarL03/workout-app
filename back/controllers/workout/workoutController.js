@@ -28,11 +28,12 @@ export const getWorkout = asyncHandler(async (req, res) => {
 })
 
 
-// @desc  Get workoutы
+
+// @desc  Get workouts
 // @route GET /api/workouts
 // @access Private
 export const getWorkouts = asyncHandler(async (req, res) => {
-    const workouts = await Workout.find({}).populate('exercises')
+    const workouts = await Workout.find().populate('exercises')
 
     res.json(workouts)
 })

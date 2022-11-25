@@ -36,7 +36,7 @@ const NewExercise = () => {
     return (
         <>
             <Layout bgImage={bgImage}>
-                <h1>CREATE NEW WORKOUT</h1>
+                <h1>CREATE NEW EXERCISE</h1>
             </Layout>
              <div className={styles.wrapper}>
                 {error && <Alert type='error' text={error}/>}
