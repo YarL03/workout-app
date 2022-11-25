@@ -9,16 +9,38 @@ import Alert from "../../ui/Alert/Alert"
 import { useMutation } from "react-query"
 import { api } from "../../../api/api"
 import Loader from "../../ui/Loader/Loader"
+import { useNavigate } from "react-router-dom"
+import { useAuth } from "../../../hooks/useAuth"
 
 const Auth = () => {
     const {register, handleSubmit} = useForm()
     const [action, setAction] = useState('')
 
-    const {mutate, isLoading, error} = useMutation('Registration',
+    const navigate = useNavigate()
+    const {isAuth, setIsAuth} = useAuth()
+
+    if (isAuth) navigate(-1)
+
+    const successLogin = (token) => {
+        localStorage.setItem('token', token)
+        setIsAuth(true)
+        navigate('/')
+    }
+
+    const {mutate: reg, isLoading: isLoadingReg, error: errorReg} = useMutation('Registration',
     (body) => api({url: '/users', type: 'POST', auth: false, body}),
     {
         onSuccess(data) {
-            localStorage.setItem('token', data.token)
+            successLogin(data.token)
+        }
+    }
+    )
+
+    const {mutate: auth, isLoading: isLoadingAuth, error: errorAuth} = useMutation('Auth',
+    (body) => api({url: '/users/login', type: 'POST', auth: false, body}),
+    {
+        onSuccess(data) {
+            successLogin(data.token)
         }
     }
     )
@@ -26,11 +48,11 @@ const Auth = () => {
     const onSubmit = (data) => {
         switch (action) {
             case 'SIGN_IN':
-                console.log(data, action)
-                break
+                auth(data)
+                return
             case 'SIGN_UP':
-                mutate(data)
-                break
+                reg(data)
+                return
         }
     }
 
@@ -41,23 +63,19 @@ const Auth = () => {
             </Layout>
 
             <div className={styles.wrapper}>
-                {error && <Alert type="error" text={error}/>}
-                {isLoading && <Loader/>}
+                {(errorReg || errorAuth) && <Alert type="error" text={errorReg || errorAuth}/>}
+                {(isLoadingReg || isLoadingAuth) && <Loader/>}
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Field
                         register={register('email', {
                             required: true
                         })}
-                        // register={register}
-                        // inputName="email"
                         placeholder="Enter email"
                     />
                     <Field
                         register={register('password', {
                             required: true
                         })}
-                        // register={register}
-                        // inputName="password"
                         placeholder="Enter password"
                     />
                     <div className={styles['inline-buttons']}>

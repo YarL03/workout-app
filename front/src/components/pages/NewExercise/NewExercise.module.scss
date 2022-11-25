@@ -1,0 +1,27 @@
+@import '../../../scss/variables';
+
+.wrapper {
+    padding: 50px 90px;
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.images {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: .7rem 0 2rem;
+
+    > img {
+        margin: 0 .5rem;
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+        padding-bottom: .5rem;
+        transition: border-bottom .4s ease;
+
+        &.active {
+            border-color: $accent
+        }
+    }
+}

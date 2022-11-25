@@ -5,12 +5,12 @@ import Exercise from "../../models/exerciseModel.js"
 // @route POST /api/exercises
 // @access Private
 export const createExercise = asyncHandler(async (req, res) => {
-    const {name, times, imageId} = req.body
+    const {name, times, imageName} = req.body
 
     const exercise = await Exercise.create({
         name,
         times,
-        imageId
+        imageName
     })
 
     res.json(exercise)
@@ -21,7 +21,7 @@ export const createExercise = asyncHandler(async (req, res) => {
 // @route PUT /api/exercises
 // @access Private
 export const updateExercise = asyncHandler(async (req, res) => {
-    const {name, times, imageId, exerciseId} = req.body
+    const {name, times, imageName, exerciseId} = req.body
 
     const exercise = await Exercise.findById(exerciseId)
 
@@ -32,7 +32,7 @@ export const updateExercise = asyncHandler(async (req, res) => {
 
     exercise.name = name
     exercise.times = times
-    exercise.imageId = imageId
+    exercise.imageName = imageName
 
     const updatedExercise = await exercise.save()
 
@@ -64,7 +64,7 @@ export const deleteExercise = asyncHandler(async (req, res) => {
 // @route GET /api/exercises
 // @access Private
 export const getExercises = asyncHandler(async (req, res) => {
-    const exercises = await Exercise.find({})
-
+    const exercises = await Exercise.find()
+    
     res.json(exercises)
 })

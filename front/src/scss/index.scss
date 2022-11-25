@@ -151,7 +151,7 @@ img {
     text-align: right;
     margin-bottom: 0.5rem;
     text-decoration: none;
-    color: $purple;
+    color: lighten($purple, 8%);
     transition: color .3s ease;
 
     &:hover {

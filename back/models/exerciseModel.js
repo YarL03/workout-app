@@ -9,8 +9,8 @@ const exerciseSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    imageId: {
-        type: Number,
+    imageName: {
+        type: String,
         required: true
     }
 }, {

@@ -1,24 +1,20 @@
 import styles from './Counters.module.scss'
 
-const counters = {
-    minutes: 7,
-    workouts: 1,
-    kgs: 5
-}
-
-const Counters = () => {
-//minutes, workouts, kgs
-
+const Counters = ({data: {minutes, workouts, kgs}}) => {
     return (
         <div className={styles.wrapper}>
-            {
-                Object.entries(counters).map(item => (
-                    <div className={styles.counter} key={'_key_' + item[0]}>
-                        <div className={styles.heading}>{item[0]}</div>
-                        <div className={styles.number}>{item[1]}</div>
+                    <div className={styles.counter}>
+                        <div className={styles.heading}>minutes</div>
+                        <div className={styles.number}>{minutes}</div>
                     </div>
-                ))
-            }
+                    <div className={styles.counter}>
+                        <div className={styles.heading}>workouts</div>
+                        <div className={styles.number}>{workouts}</div>
+                    </div>
+                    <div className={styles.counter}>
+                        <div className={styles.heading}>kgs</div>
+                        <div className={styles.number}>{kgs}</div>
+                    </div>
         </div>
     )
 }

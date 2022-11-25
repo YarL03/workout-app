@@ -2,7 +2,7 @@
 
 .input {
     background-color: $purple;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     font-size: 16px;
     color: #fff;
     padding: 14px;
@@ -18,4 +18,10 @@
     &::placeholder {
         color: #946E86;
     }
+    
+    &.error,
+    &.error:focus {
+            border-color: $yellow;
+    }
+    
 }
