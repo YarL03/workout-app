@@ -5,10 +5,14 @@
   "main": "back/server.js",
   "type": "module",
   "scripts": {
-    "start": "node back/server",
+    "start": "concurrently \"npm run server-start\" \"npm run start --prefix front\"",
+		"dev": "concurrently \"npm run server\" \"npm run start --prefix front\"",
     "server": "nodemon back/server",
+    "server-start": "node back/server",
     "client": "npm run start --prefix front",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "build": "cd front && npm run build",
+    "install-client": "cd front && npm install",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix front && npm run build --prefix front"
   },
   "author": "YarL03",
   "license": "ISC",
