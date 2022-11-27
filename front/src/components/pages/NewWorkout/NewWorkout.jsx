@@ -4,6 +4,7 @@ import Field from "../../ui/Field/Field"
 import { useForm } from "react-hook-form"
 import Button from "../../ui/Button/Button"
 import styles from './NewWorkout.module.scss'
+import stylesLayout from '../../common/Layout.module.scss'
 import ReactSelect from 'react-select'
 import { optionColor } from "./optionColor"
 import { useState } from "react"
@@ -49,7 +50,7 @@ const NewWorkout = () => {
     return (
         <>
             <Layout bgImage={bgImage}>
-                <h1>CREATE NEW WORKOUT</h1>
+                <h1 className={stylesLayout.heading}>CREATE NEW WORKOUT</h1>
             </Layout>
              <div className={styles.wrapper}>
                 {errorPost && <Alert type="error" text={errorPost}/>}

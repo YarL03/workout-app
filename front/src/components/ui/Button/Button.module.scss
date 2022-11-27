@@ -1,6 +1,6 @@
 @import '../../../scss/variables';
 
-$accent-04: rgba($accent, .4);
+$accent-04: rgba($accent, .7);
 
 .button {
     border: none;
@@ -12,13 +12,17 @@ $accent-04: rgba($accent, .4);
     background-color: $accent-04;
     cursor: pointer;
     color: #fff;
+    @media (max-width: $mobile) {
+        font-size: 16px;
+        padding: 13px 20px;
+    }
 
     &:hover {
         background-color: rgba($accent, .7);
     }
     
     &.main {
-        background-color: rgba(255, 255, 255, .25);
+        background-color: rgba(255, 255, 255, .35);
 
         &:hover {
             background-color: $accent-04;

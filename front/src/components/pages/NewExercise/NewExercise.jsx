@@ -5,6 +5,7 @@ import Field from "../../ui/Field/Field"
 import { useForm } from "react-hook-form"
 import Button from "../../ui/Button/Button"
 import styles from './NewExercise.module.scss'
+import stylesLayout from '../../common/Layout.module.scss'
 import { useState } from "react"
 import { useMutation } from 'react-query'
 import { api } from '../../../api/api'
@@ -35,8 +36,8 @@ const NewExercise = () => {
 
     return (
         <>
-            <Layout bgImage={bgImage}>
-                <h1>CREATE NEW EXERCISE</h1>
+            <Layout bgImage={bgImage} backLink="/new-workout">
+                <h1 className={stylesLayout.heading}>CREATE NEW EXERCISE</h1>
             </Layout>
              <div className={styles.wrapper}>
                 {error && <Alert type='error' text={error}/>}

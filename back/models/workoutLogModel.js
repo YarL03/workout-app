@@ -15,9 +15,9 @@ const workoutLogSchema = mongoose.Schema({
     },
     completed: {
         type: Boolean,
-        default: true
+        default: false
     },
-    exercisesLogs: [
+    exerciseLogs: [
         {
             type: ObjectId,
             ref: 'ExerciseLog'

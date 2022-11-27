@@ -20,5 +20,18 @@
         height: 280px;
         border-radius: 0 0 20px 20px;
         box-shadow: $bx-accent;
+
+        @media (max-width: $mobile) {
+            height: 260px !important;
+        }
+    }
+}
+
+.heading {
+    color: $white;
+    font-size: 30px;
+
+    @media (max-width: $mobile) {
+        font-size: 22px;
     }
 }

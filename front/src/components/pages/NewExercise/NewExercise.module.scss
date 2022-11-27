@@ -1,7 +1,7 @@
 @import '../../../scss/variables';
 
 .wrapper {
-    padding: 50px 90px;
+    padding: 50px 30px;
     text-align: center;
     max-width: 560px;
     margin: 0 auto;
@@ -18,10 +18,14 @@
         cursor: pointer;
         border-bottom: 2px solid transparent;
         padding-bottom: .5rem;
-        transition: border-bottom .4s ease;
+        transition: border-bottom .4s ease, opacity .4s ease;
+        opacity: .6;
+        width: 34px;
+        height: 50px;
 
         &.active {
-            border-color: $accent
+            border-color: $accent;
+            opacity: 1;
         }
     }
 }

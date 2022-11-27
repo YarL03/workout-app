@@ -23,7 +23,9 @@ export const createWorkoutLog = asyncHandler(async (req, res) => {
             for (let i = 0; i < ex.times; i++) {
                 timesArray.push({
                     weight: 0,
-                    repeat: 0
+                    repeat: 0,
+                    prevRepeat: 0,
+                    prevWeight: 0,
                 })
             }
 
@@ -58,29 +60,32 @@ export const createWorkoutLog = asyncHandler(async (req, res) => {
 })
 
 
-// @desc  Get workout log
-// @route GET /api/wortkouts/log/:id
-// @access Private
-export const getWorkoutLog = asyncHandler(async (res, req) => {
-    const workoutLog = await WorkoutLog.findById(res.params.id)
-        .populate('workout')
-        .populate({
-            path: 'exerciseLogs',
-            populate: {
-                path: 'exercise'
-            }
-        })
-        .lean()
+// @desc    Get workout log
+// @route   GET /api/workouts/log/:id
+// @access  Private
+export const getWorkoutLog = asyncHandler(async (req, res) => {
+	const workoutLog = await WorkoutLog.findOne({
+        _id: req.params.id,
+        user: req.user._id
+    })
+		.populate('workout')
+		.populate({
+			path: 'exerciseLogs',
+			populate: {
+				path: 'exercise',
+			},
+		})
+		.lean()
 
-    const minutes = Math.ceil(workoutLog.workout.exercises.length * 3.7)
+	const minutes = Math.ceil(workoutLog.workout.exercises.length * 3.7)
 
-    res.json({...workoutLog, minutes})
+	res.json({ ...workoutLog, minutes })
 })
 
 // @desc  Update workout log completed
 // @route PUT /api/wortkouts/log/completed
 // @access Private
-export const updateCompleteWorkoutLog = asyncHandler(async (res, req) => {
+export const updateCompleteWorkoutLog = asyncHandler(async (req, res) => {
     const {logId} = req.body
 
     const currentLog = await WorkoutLog.findById(logId)

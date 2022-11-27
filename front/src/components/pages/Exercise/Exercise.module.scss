@@ -1,0 +1,111 @@
+@import '../../../scss/variables';
+@import '../../../scss/animations.scss';
+
+.wrapper {
+    background-color: $dark-purple;
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    max-width: 560px;
+    width: 90%;
+    margin: 30px auto;
+
+   > .row {
+        display: flex;
+        align-items: center;
+
+        > div {
+            padding: 15px;
+            width: 30%;
+            text-align: center;
+            font-size: 17px;
+            @media (max-width: $mobile) {
+                padding: 15px 5px;
+                width: 35%;
+            }
+
+            &:not(&:last-child) {
+                border-right: 1px solid $purple;
+            }
+
+            > input {
+                width: 27px;
+                border: none;
+                outline: none;
+                background-color: transparent;
+
+                &:first-child {
+                    text-align: right;
+                    animation: opacity .4s;
+                }
+            }
+
+            > i,
+            > span,
+            > input {
+                font-size: 16px;
+                color: $white;
+
+                @media (max-width: $mobile) {
+                    font-size: 14px;
+                }
+            }
+
+            > i {
+                font-style: normal;
+                margin: 0 2px;
+            }
+
+
+            &:nth-child(2) {
+                width: 40%;
+            }
+
+            
+        }
+
+        &:last-child >div {
+                        padding-bottom: 100px;
+                    }
+
+        &:first-child {
+            border-bottom: 1px solid $purple;
+
+            @media (max-width: $mobile) {
+                > div > span {
+                    font-size: 14px;
+                }       
+            }
+        }
+
+        &.completed {
+            > div {
+                color: $accent;
+
+                > i,
+                > input {
+                    text-decoration: line-through;
+                    color: $accent;
+                }
+            }
+        }
+
+        .checkbox {
+            cursor: pointer;
+        }
+   }
+
+   .opacity {
+        opacity: .7;
+   }
+}
+
+
+.heading {
+    display: flex;
+    align-items: center;
+
+    > img {
+        margin-right: 9px;
+    }
+}

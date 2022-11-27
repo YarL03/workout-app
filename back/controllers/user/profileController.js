@@ -21,7 +21,7 @@ export const getUserProfile = asyncHandler(async (req, res) => {
 
     exerciseLogsByUser.forEach(log => {
         countExerciseTimeCompleted += log.times.length
-
+        console
         log.times.forEach(item => 
             kgs += item.weight)
     })

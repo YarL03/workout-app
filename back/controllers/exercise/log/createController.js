@@ -12,7 +12,9 @@ export const createExerciseLog = asyncHandler(async (req, res) => {
         for (let i = 0; i < times; i++) {
             timesArray.push({
                 weight: 0,
-                repeat: 0
+                repeat: 0,
+                prevWeight: 0,
+                prevRepeat: 0
             })
         }
 

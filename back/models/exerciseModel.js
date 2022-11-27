@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+const {ObjectId} = mongoose.Schema
+
 const exerciseSchema = mongoose.Schema({
     name: {
         type: String,
@@ -12,7 +14,12 @@ const exerciseSchema = mongoose.Schema({
     imageName: {
         type: String,
         required: true
-    }
+    },
+    user: {
+        type: ObjectId,
+        ref: 'User',
+        required: true
+    },
 }, {
     minimize: false,
     timestamps: true

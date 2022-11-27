@@ -1,6 +1,6 @@
 export const notFound = (req, res, next) => {
     const error = new Error(`Not found - ${req.optionalUrl}`)
-    console.log(req, res)
+
     res.status(404)
     next(error)
 }

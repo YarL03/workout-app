@@ -8,13 +8,13 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../../hooks/useAuth'
 
 
-export const Header = () => {
+export const Header = ({backLink = -1}) => {
     const location = useLocation()
     const navigate = useNavigate()
 
     const {isAuth} = useAuth()
 
-    const goBack = () => navigate(-1)
+    const goBack = () => navigate(backLink)
     const goAuth = () => isAuth ? navigate('/profile') : navigate('/auth')
 
     return (
@@ -30,7 +30,6 @@ export const Header = () => {
             </button>
             }
            
-
             <Hamburger/>
         </header>
     )

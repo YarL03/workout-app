@@ -5,6 +5,7 @@ import {
   } from "react-router-dom";
 import PageNotFound from "../components/pages/404/PageNotFound";
 import Auth from "../components/pages/Auth/Auth";
+import Exercise from "../components/pages/Exercise/Exercise";
 import Home from "../components/pages/Home/Home";
 import NewExercise from "../components/pages/NewExercise/NewExercise";
 import NewWorkout from "../components/pages/NewWorkout/NewWorkout";
@@ -38,6 +39,7 @@ const router = createBrowserRouter(
                         <SingleWorkout/>
                     </RequiredAuth>}/>
             </Route>
+            <Route path="exercise/:id" element={<Exercise/>}/>
             <Route path="auth" element={<Auth/>}/>
             <Route path="*" element={<PageNotFound/>}/>
         </Route>

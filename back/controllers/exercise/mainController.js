@@ -8,6 +8,7 @@ export const createExercise = asyncHandler(async (req, res) => {
     const {name, times, imageName} = req.body
 
     const exercise = await Exercise.create({
+        user: req.user._id,
         name,
         times,
         imageName
@@ -64,7 +65,19 @@ export const deleteExercise = asyncHandler(async (req, res) => {
 // @route GET /api/exercises
 // @access Private
 export const getExercises = asyncHandler(async (req, res) => {
-    const exercises = await Exercise.find()
+    const exercises = await Exercise.find({user: req.user._id})
     
     res.json(exercises)
+})
+
+// @desc  Get exercise
+// @route GET /api/exercises/:id
+// @access Private
+export const getExercise = asyncHandler(async (req, res) => {
+    const exercise = await Exercise.findOne({
+        _id: req.params.id,
+        user: req.user._id
+    })
+    
+    res.json(exercise)
 })

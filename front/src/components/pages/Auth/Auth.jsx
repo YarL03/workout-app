@@ -4,6 +4,7 @@ import Field from "../../ui/Field/Field"
 import { useForm } from "react-hook-form"
 import Button from "../../ui/Button/Button"
 import styles from './Auth.module.scss'
+import stylesLayout from '../../common/Layout.module.scss'
 import { useState } from "react"
 import Alert from "../../ui/Alert/Alert"
 import { useMutation } from "react-query"
@@ -58,8 +59,8 @@ const Auth = () => {
 
     return (
         <>
-            <Layout bgImage={bgImage}>
-                <h1>AUTH || REGISTRATION</h1>
+            <Layout backLink="/" bgImage={bgImage}>
+                <h1 className={stylesLayout.heading}>AUTH || REGISTRATION</h1>
             </Layout>
 
             <div className={styles.wrapper}>
