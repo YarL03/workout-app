@@ -9,11 +9,13 @@ import { connectDB } from './config/db.js'
 
 /* Middlewares */
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
+import { cors } from './middleware/corsMiddleware.js'
 
 /* Routes */
 import userRoutes from './routes/userRoutes.js'
 import exerciseRoutes from './routes/exerciseRoutes.js'
 import workoutRoutes from './routes/workoutRoutes.js'
+
 
 
 dotenv.config()
@@ -26,6 +28,8 @@ if(process.env.NODE_ENV === 'development')
     app.use(morgan('dev'))
 
 app.use(express.json())
+app.use(cors)
+
 
 const __dirname = path.resolve()
 app.use('/uploads', express.static(path.join(__dirname, '/uploads/')))

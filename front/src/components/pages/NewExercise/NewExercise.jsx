@@ -11,8 +11,20 @@ import { useMutation } from 'react-query'
 import { api } from '../../../api/api'
 import Loader from '../../ui/Loader/Loader'
 import Alert from '../../ui/Alert/Alert'
+import chest from '../../../images/icons/chest.svg'
+import shoulders from '../../../images/icons/shoulders.svg'
+import biceps from '../../../images/icons/biceps.svg'
+import legs from '../../../images/icons/legs.svg'
+import hit from '../../../images/icons/hit.svg'
 
-const data = ['chest', 'shoulders', 'biceps', 'legs', 'hit']
+const data = Object.entries({
+    chest,
+    shoulders,
+    biceps,
+    legs,
+    hit
+})
+
 
 const NewExercise = () => {
     const {register, handleSubmit, reset, formState: {errors}} = useForm({
@@ -25,7 +37,7 @@ const NewExercise = () => {
     {
         onSuccess(data) {
             reset()
-            imageName !== 'chest' && setImageName('chest')
+            imageName !== data[0][0] && setImageName(data[0][0])
         }
     }
     )
@@ -60,12 +72,12 @@ const NewExercise = () => {
                     />
 
                     <div className={styles.images}>
-                        {data.map(name => (
-                            <img key={'__key__' + name} src={`/front/src/images/icons/${name}.svg`} alt={name}
+                        {data.map(item => (
+                            <img key={'__key__' + item[0]} src={item[1]} alt={item[0]}
                             className={cn({
-                                [styles.active]: imageName === name
+                                [styles.active]: imageName === item[0]
                             })}
-                            onClick={() => setImageName(name)}
+                            onClick={() => setImageName(item[0])}
                             />
                         ))}
                     </div>

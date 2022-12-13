@@ -7,12 +7,10 @@ import { generateToken } from '../../helpers/generateToken.js'
 // @access Public
 export const authUser = asyncHandler(async (req, res) => {
     const {email, password} = req.body
-    console.log('ya zdes')
     const user = await User.findOne({email})
 
     if (user && (await user.matchPassword(password))) {
         const token = generateToken(user._id)
-        console.log('ya zdes1')
         res.json({user, token})
     }
     else {
