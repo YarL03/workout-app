@@ -46,7 +46,6 @@ const SingleWorkout = () => {
     }, [data?.exerciseLogs])
 
     
-    console.log(isLoading, isSuccess, data)
     return (
         <>
             <div

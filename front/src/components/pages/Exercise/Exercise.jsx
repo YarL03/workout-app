@@ -57,9 +57,7 @@ const Exercise = () => {
     }, [])
 
     useEffect(() => {
-        console.log(isSuccess &&
-            data.times.length === data.times.filter(time => time.completed)
-            .length)
+        
             if (
                 isSuccess &&
                 data.times.length === data.times.filter(time => time.completed)
@@ -70,7 +68,6 @@ const Exercise = () => {
 
         }, [data?.times, isSuccess])
 
-        console.log(data)
     !isSuccess && error && setTimeout(() => navigate('/workouts'), 1500)
     return (
         <>
