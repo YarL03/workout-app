@@ -17,7 +17,7 @@ import biceps from '../../../images/icons/biceps.svg'
 import legs from '../../../images/icons/legs.svg'
 import hit from '../../../images/icons/hit.svg'
 
-const data = Object.entries({
+const icons = Object.entries({
     chest,
     shoulders,
     biceps,
@@ -30,14 +30,14 @@ const NewExercise = () => {
     const {register, handleSubmit, reset, formState: {errors}} = useForm({
         defaultValues: {times: 3}
     })
-    const [imageName, setImageName] = useState('chest')
+    const [imageName, setImageName] = useState(icons[0][0])
 
     const {isSuccess, mutate, isLoading, error} = useMutation('Create new exercise',
     (body) => api({url: '/exercises', type: 'POST', body}),
     {
         onSuccess(data) {
             reset()
-            imageName !== data[0][0] && setImageName(data[0][0])
+            imageName !== 'chest' && setImageName(icons[0][0])
         }
     }
     )
@@ -72,7 +72,7 @@ const NewExercise = () => {
                     />
 
                     <div className={styles.images}>
-                        {data.map(item => (
+                        {icons.map(item => (
                             <img key={'__key__' + item[0]} src={item[1]} alt={item[0]}
                             className={cn({
                                 [styles.active]: imageName === item[0]
